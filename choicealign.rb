@@ -1,4 +1,8 @@
 #==============================================================================
+# * Error Details:
+# I added a BG image for message boxes, but whenever using the choice prompt, 
+# the choice box is sometimes hidden underneath the image.
+#---------------------------------------------------------------------------
 # Script Call: 
 #-------------
 # Window_ChoiceList.alt_align( newalign )
@@ -53,6 +57,13 @@ class Window_ChoiceList
     @@alignment = newalign
   end
   #--------------------------------------------------------------------------
+  # Alias for select to allow for refreshing the page on select. 
+  #--------------------------------------------------------------------------
+  alias :selectfixbydekita :select
+  def select(*args, &blawk)
+    selectfixbydekita(*args, &blawk);refresh()
+  end
+  #--------------------------------------------------------------------------
   # Draws the 'item' (choice text) into the window. 
   #--------------------------------------------------------------------------
   def draw_item(index)
@@ -74,6 +85,15 @@ class Window_ChoiceList
     when 1 then Graphics.width/2-(width/2)
     when 2 then Graphics.width-width
     end
+  end
+  #--------------------------------------------------------------------------
+  # Update Window Position
+  #--------------------------------------------------------------------------
+  alias :update_placementdekifix :update_placement
+  def update_placement(*argz, &blawk)
+    update_placementdekifix(*argz, &blawk)
+    self.width = Graphics.width
+    self.x = Graphics.width - width
   end
   #--------------------------------------------------------------------------
   # End Class
