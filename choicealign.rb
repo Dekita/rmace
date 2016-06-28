@@ -5,6 +5,7 @@
 # 
 # 'newalign' should be an integer value (0,1, or 2) that determines the 
 # alignment of the choice winow when its shown. 
+# 
 #==============================================================================
 module DekChoicesFix 
   #--------------------------------------------------------------------------
@@ -89,7 +90,6 @@ class Window_ChoiceList
   def update_placement(*argz, &blawk)
     update_placementdekifix(*argz, &blawk)
     self.width = Graphics.width
-    self.x = Graphics.width - width
   end
   #--------------------------------------------------------------------------
   # Update Window cursor to not be visible 
