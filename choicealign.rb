@@ -1,8 +1,4 @@
 #==============================================================================
-# * Error Details:
-# I added a BG image for message boxes, but whenever using the choice prompt, 
-# the choice box is sometimes hidden underneath the image.
-#---------------------------------------------------------------------------
 # Script Call: 
 #-------------
 # Window_ChoiceList.alt_align( newalign )
