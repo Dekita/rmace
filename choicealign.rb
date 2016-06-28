@@ -93,7 +93,18 @@ class Window_ChoiceList
   def update_placement(*argz, &blawk)
     update_placementdekifix(*argz, &blawk)
     self.width = Graphics.width
+    self.x = Graphics.width - width
   end
+  #--------------------------------------------------------------------------
+  # Update Window cursor to not be visible 
+  #--------------------------------------------------------------------------
+  alias :updatecursordekifixx :update_cursor
+  def update_cursor(*args, &blawk)
+    updatecursordekifixx(*args, &blawk)
+    unless (@cursor_all || @index < 0)
+      cursor_rect.empty 
+    end
+  end  
   #--------------------------------------------------------------------------
   # End Class
   #--------------------------------------------------------------------------
