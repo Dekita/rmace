@@ -93,7 +93,6 @@ class Window_ChoiceList
   def update_placement(*argz, &blawk)
     update_placementdekifix(*argz, &blawk)
     self.width = Graphics.width
-    self.x = Graphics.width - width
   end
   #--------------------------------------------------------------------------
   # End Class
